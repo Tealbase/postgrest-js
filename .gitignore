@@ -1,0 +1,8 @@
+node_modules
+dist
+docs
+*.log
+
+# nyc
+coverage
+.nyc_output
