@@ -1,6 +1,6 @@
 {
   "name": "@tealbase/postgrest-js",
-  "version": "1.19.3",
+  "version": "1.19.4",
   "description": "Isomorphic PostgREST client",
   "keywords": [
     "postgrest",
