@@ -1,8 +1,10 @@
 node_modules
 dist
-docs
+docs/v2
 *.log
 
 # nyc
 coverage
 .nyc_output
+
+.idea

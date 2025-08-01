@@ -1,44 +1,54 @@
-# Postgrest JS
+# `postgrest-js`
 
-Isomorphic JavaScript client for [PostgREST](https://postgrest.org). The goal of this library is to make an "ORM-like" restful interface. 
+[![Build](https://github.com/tealbase/postgrest-js/workflows/CI/badge.svg)](https://github.com/tealbase/postgrest-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@tealbase/postgrest-js)](https://www.npmjs.com/package/@tealbase/postgrest-js)
+[![License: MIT](https://img.shields.io/npm/l/@tealbase/postgrest-js)](#license)
 
-## Status
+Isomorphic JavaScript client for [PostgREST](https://postgrest.org). The goal of this library is to make an "ORM-like" restful interface.
 
-![Tests](https://github.com/tealbase/postgrest-js/workflows/Node.js%20CI/badge.svg)
+Full documentation can be found [here](https://tealbase.github.io/postgrest-js/v2).
 
-Ready for production! Watch and star this repo to keep updated on releases.
+### Quick start
 
-## Documentation
-Visit our [wiki](https://github.com/tealbase/postgrest-js/wiki) to get started!
+Install
 
-## Usage online 
+```bash
+npm install @tealbase/postgrest-js
+```
 
-### tealbase/tealbase-js
-- [Repository](https://github.com/tealbase/tealbase-js)
-- [Documentation](https://tealbase.io/docs/about)
+Usage
 
-## Contributing
+```js
+import { PostgrestClient } from '@tealbase/postgrest-js'
 
-- Fork the repo on GitHub
-- Clone the project to your own machine
-- Commit changes to your own branch
-- Push your work back up to your fork
-- Submit a Pull request so that we can review your changes and merge
+const REST_URL = 'http://localhost:3000'
+const postgrest = new PostgrestClient(REST_URL)
+```
+
+- select(): https://tealbase.com/docs/reference/javascript/select
+- insert(): https://tealbase.com/docs/reference/javascript/insert
+- update(): https://tealbase.com/docs/reference/javascript/update
+- delete(): https://tealbase.com/docs/reference/javascript/delete
+
+#### Custom `fetch` implementation
+
+`postgrest-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
+
+```js
+import { PostgrestClient } from '@tealbase/postgrest-js'
+
+const REST_URL = 'http://localhost:3000'
+const postgrest = new PostgrestClient(REST_URL, {
+  fetch: (...args) => fetch(...args),
+})
+```
 
 ## License
 
-This repo is liscenced under MIT.
-
-## Credits
-
-- https://github.com/calebmer/postgrest-client - originally forked and adapted from @calebmer's library
-
-![Watch this repo](https://gitcdn.xyz/repo/tealbase/monorepo/master/web/static/watch-repo.gif "Watch this repo")
-
+This repo is licensed under MIT License.
 
 ## Sponsors
 
 We are building the features of Firebase using enterprise-grade, open source products. We support existing communities wherever possible, and if the products don’t exist we build them and open source them ourselves. Thanks to these sponsors who are making the OSS ecosystem better for everyone.
 
-[![Worklife VC](https://user-images.githubusercontent.com/10214025/90451355-34d71200-e11e-11ea-81f9-1592fd1e9146.png)](https://www.worklife.vc)
 [![New Sponsor](https://user-images.githubusercontent.com/10214025/90518111-e74bbb00-e198-11ea-8f88-c9e3c1aa4b5b.png)](https://github.com/sponsors/tealbase)
